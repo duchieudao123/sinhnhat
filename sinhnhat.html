@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chúc Mừng Sinh Nhật Anh Khang 🎂</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3, #a18cd1);
+  overflow-x: hidden;
+}
+.card {
+  width: min(90%, 500px);
+  padding: 35px 22px;
+  border-radius: 25px;
+  background: rgba(255,255,255,.2);
+  border: 1px solid rgba(255,255,255,.4);
+  box-shadow: 0 12px 40px #753b5b44;
+}
+h1 { font-size: clamp(28px, 7vw, 42px); }
+.cake { font-size: 90px; animation: bounce 1.5s infinite; }
+p { font-size: 18px; line-height: 1.7; }
+button {
+  padding: 13px 22px;
+  margin: 8px;
+  border: none;
+  border-radius: 30px;
+  background: #fff;
+  color: #ed4c83;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover { transform: scale(1.05); }
+#message { margin-top: 18px; font-weight: bold; }
+.heart {
+  position: fixed;
+  bottom: -30px;
+  animation: fly 5s linear forwards;
+  pointer-events: none;
+}
+@keyframes bounce {
+  50% { transform: translateY(-12px); }
+}
+@keyframes fly {
+  to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="cake">🎂</div>
+  <h1>🎉 Happy Birthday 🎉</h1>
+  <h2>Chúc mừng sinh nhật anh Khang !</h2>
+  <p>
+    Chúc anh tuổi mới thật nhiều niềm vui 💖<br>
+    Luôn xinh đẹp, hạnh phúc và thành công.<br>
+    Mong mọi điều ước đều trở thành hiện thực! ✨
+  </p>
+  <button onclick="wish()">🎁 ấn vào đây</button>
+  <button onclick="hearts()">💗 Thả tim</button>
+  <div id="message"></div>
+</div>
+<script>
+function wish() {
+  document.getElementById("message").innerHTML =
+    "💝 Chúc anh có một ngày sinh nhật tuyệt vời nhất! 💝";
+  hearts();
+}
+function hearts() {
+  for (let i = 0; i < 25; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.textContent = ["💗","💖","💕","🎈","✨"][
+      Math.floor(Math.random() * 5)
+    ];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (20 + Math.random() * 25) + "px";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }
+}
+</script>
+</body>
+</html>
